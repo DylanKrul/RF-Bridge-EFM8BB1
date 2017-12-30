@@ -59,13 +59,14 @@
 								<inputType id="com.silabs.ide.si8051.keil.assembler.inputType.541849322" superClass="com.silabs.ide.si8051.keil.assembler.inputType"/>
 							</tool>
 							<tool command="LX51" id="com.silabs.ide.si8051.keil.toolchain.linker.1678919565" name="Keil 8051 Linker" superClass="com.silabs.ide.si8051.keil.toolchain.linker">
+								<option id="com.silabs.ide.si8051.keil.linker.category.ordering.selection.1913768724" superClass="com.silabs.ide.si8051.keil.linker.category.ordering.selection" value="./src/Globals.OBJ;./src/InitDevice.OBJ;./src/RF_Bridge_main.OBJ;./src/RF_Handling.OBJ;./src/SILABS_STARTUP.OBJ;./src/uart.OBJ;./lib/efm8bb1/peripheralDrivers/src/pca_0.OBJ;./lib/efm8bb1/peripheralDrivers/src/uart_0.OBJ;./.metadata/.plugins/org.eclipse.cdt.make.core/specs.OBJ" valueType="string"/>
 								<inputType id="com.silabs.ide.si8051.keil.linker.inputType.732015689" superClass="com.silabs.ide.si8051.keil.linker.inputType"/>
 							</tool>
 							<tool id="com.silabs.ide.si8051.keil.toolchain.librarian.889701608" name="Keil 8051 Library Manager" superClass="com.silabs.ide.si8051.keil.toolchain.librarian"/>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding=".git/objects/info|.git/objects/pack|.git/refs/tags|lib/bsp/bsp.h|lib/efm8bb1/peripheralDrivers/inc/pca_0.h|lib/efm8bb1/peripheralDrivers/src/pca_0.c|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding=".git/objects/info|.git/objects/pack|.git/refs/tags|lib/bsp/bsp.h|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
