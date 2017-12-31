@@ -100,7 +100,7 @@ Hex: AA B0 20 04 1A 0120 01C0 0300 2710 0121212201220121212121212122012121220121
 0xB0: transmit bucketed RF data<br/>
 0x20: data len: 32 bytes<br/>
 0x04: number of buckets: 4<br/>
-0x1A: number of repetitions: (transmit 26 times)<br/>
+0x19: number of repetitions: (transmit 1+25 = 26 times)<br/>
 0x01-0x20: Bucket 1 length: 288µs<br/>
 0x01-0xC0: Bucket 2 length: 448µs<br/>
 0x03-0x00: Bucket 3 length: 768µs<br/>
