@@ -19,6 +19,7 @@ extern void PCA0_StopTransmit(void);
 extern uint8_t PCA0_DoSniffing(uint8_t active_command);
 extern void PCA0_StopSniffing(void);
 extern void SendRFBuckets(uint16_t *buckets, uint8_t *rfdata, uint8_t n, uint8_t repeats);
+extern void Bucket_Received(uint16_t duration);
 
 // 112 byte == 896 bits, so a RF signal with maximum of 896 bits is possible
 // for bucket transmission, this depends on the number of buckets.
@@ -31,9 +32,19 @@ typedef enum
 {
 	RF_IDLE,
 	RF_IN_SYNC,
+	RF_DECODE_BUCKET,
 	RF_TRANSMITTING,
 	RF_FINISHED
 } rf_state_t;
+
+typedef enum
+{
+	// do sniffing by duty cycle
+	MODE_DUTY_CYCLE,
+	// do sniffing by bucket
+	// https://github.com/pimatic/RFControl
+	MODE_BUCKET
+} rf_sniffing_mode_t;
 
 #define RF_DATA_RECEIVED_MASK	0x80
 
@@ -45,6 +56,7 @@ extern SI_SEGMENT_VARIABLE(RF_DATA[RF_DATA_BUFFERSIZE], uint8_t, SI_SEG_XDATA);
 extern SI_SEGMENT_VARIABLE(RF_DATA_STATUS, uint8_t, SI_SEG_XDATA);
 extern SI_SEGMENT_VARIABLE(rf_state, rf_state_t, SI_SEG_XDATA);
 extern SI_SEGMENT_VARIABLE(desired_rf_protocol, uint8_t, SI_SEG_XDATA);
+extern SI_SEGMENT_VARIABLE(rf_sniffing_mode, rf_sniffing_mode_t, SI_SEG_XDATA);
 
 extern SI_SEGMENT_VARIABLE(last_sniffing_command, uint8_t, SI_SEG_XDATA);
 
@@ -62,5 +74,9 @@ extern SI_SEGMENT_VARIABLE(actual_bit_of_byte, uint8_t, SI_SEG_XDATA);
 extern SI_SEGMENT_VARIABLE(actual_bit, uint8_t, SI_SEG_XDATA);
 extern SI_SEGMENT_VARIABLE(actual_sync_bit, uint8_t, SI_SEG_XDATA);
 extern SI_SEGMENT_VARIABLE(actual_byte, uint8_t, SI_SEG_XDATA);
+
+extern SI_SEGMENT_VARIABLE(bucket_sync, uint16_t, SI_SEG_XDATA);
+extern SI_SEGMENT_VARIABLE(buckets[15], uint16_t, SI_SEG_XDATA);
+extern SI_SEGMENT_VARIABLE(bucket_count, uint8_t, SI_SEG_XDATA);
 
 #endif /* INC_RF_HANDLING_H_ */
